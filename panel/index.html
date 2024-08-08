@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- EditorJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs-inline-tool@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw@latest"></script>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js"></script>
+    <!-- Mammoth.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Humata</div>
+            <div class="user">
+                <span>Jawwad Malik</span>
+                <div class="user-icon">J</div>
+                <div class="dropdown">
+                    <button class="dropbtn">SSUET AI Chatbot</button>
+                    <div class="dropdown-content">
+                        <a href="#">Home</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Chat support</a>
+                        <a href="#">Team</a>
+                        <a href="#">Insights</a>
+                        <a href="#">Invite colleagues</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="file-upload">
+            <div class="upload-header">
+                <span>Admission</span>
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Upload</button>
+                <input type="file" id="fileInput" multiple style="display: none;" accept=".pdf,.docx,.doc,.pptx,.ppt">
+            </div>
+            <div class="drag-drop" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                <span>Drag and Drop or</span>
+                <button class="upload-file-btn" onclick="document.getElementById('fileInput').click()">Upload a file</button>
+            </div>
+            <div class="file-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date created</th>
+                            <th>Uploaded by</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fileTableBody">
+                        <!-- Files will be listed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="editorjs"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
